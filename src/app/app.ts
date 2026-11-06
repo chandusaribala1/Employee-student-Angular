@@ -16,7 +16,7 @@ type Section = 'employees' | 'students';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LowerCasePipe, FilterPipe, ButtonComponent, TableComponent, ],
+  imports: [LowerCasePipe, FilterPipe, ButtonComponent, TableComponent, RecordFormComponent],
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
@@ -107,7 +107,7 @@ export class App implements OnInit {
       });
   }
 
-  Role(role: Role): void {
+  selectRole(role: Role): void {
     this.role = role;
     this.section = role === 'Student' ? 'students' : 'employees';
     this.cancelForm();

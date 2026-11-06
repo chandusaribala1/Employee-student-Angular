@@ -23,6 +23,30 @@
       "department": "Finance",
       "designation": "Accountant",
       "salary": 58000
+    },
+    {
+      "name": "chandana",
+      "email": "chandana@gmail.com",
+      "department": "Development",
+      "designation": "Backend Developer",
+      "salary": 25000,
+      "id": "YsZ2CmW"
+    },
+    {
+      "name": "reethika",
+      "email": "reethika@gmail.com",
+      "department": "Testing",
+      "designation": "QA",
+      "salary": 25000,
+      "id": "xRmRrF0"
+    },
+    {
+      "name": "bablu",
+      "email": "hithesh@gmail.com",
+      "department": "IT",
+      "designation": "Angular Developer",
+      "salary": 30000,
+      "id": "Ke1mapB"
     }
   ],
   "students": [
