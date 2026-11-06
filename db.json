@@ -1,0 +1,54 @@
+{
+  "employees": [
+    {
+      "name": "Maya Patel",
+      "email": "maya.patel@example.com",
+      "department": "IT",
+      "designation": "Developer",
+      "salary": 55000,
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Arjun Rao",
+      "email": "arjun.rao@example.com",
+      "department": "Human Resources",
+      "designation": "HR Specialist",
+      "salary": 52000
+    },
+    {
+      "id": "3",
+      "name": "Nina Thomas",
+      "email": "nina.thomas@example.com",
+      "department": "Finance",
+      "designation": "Accountant",
+      "salary": 58000
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Riya Shah",
+      "email": "riya.shah@example.com",
+      "course": "Angular Development",
+      "college": "Northview College",
+      "age": 21
+    },
+    {
+      "id": "2",
+      "name": "Kabir Mehta",
+      "email": "kabir.mehta@example.com",
+      "course": "Java",
+      "college": "City Institute",
+      "age": 22
+    },
+    {
+      "id": "3",
+      "name": "Sara Khan",
+      "email": "sara.khan@example.com",
+      "course": "Data Science",
+      "college": "Lakeside University",
+      "age": 20
+    }
+  ]
+}

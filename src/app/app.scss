@@ -1,0 +1,76 @@
+:host {
+  --page-ink: #18283f;
+  --page-muted: #64748b;
+  --page-accent: #4f6bed;
+  display: block;
+  min-height: 100vh;
+  color: var(--page-ink);
+}
+
+.navbar {
+  min-height: 68px;
+  background: #17263d !important;
+  box-shadow: 0 3px 14px rgb(17 32 54 / 12%);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+main.container {
+  max-width: 1120px;
+}
+
+header p:first-child {
+  letter-spacing: .12em;
+}
+
+header h1 {
+  color: var(--page-ink);
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+
+header .text-secondary {
+  color: var(--page-muted) !important;
+}
+
+.card {
+  border: 1px solid #e5eaf2;
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgb(34 52 78 / 7%) !important;
+}
+
+.card-body {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.btn {
+  border-radius: .55rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--page-accent);
+  --bs-btn-border-color: var(--page-accent);
+  --bs-btn-hover-bg: #3e58d3;
+  --bs-btn-hover-border-color: #3e58d3;
+}
+
+.form-control {
+  min-height: 44px;
+  border-color: #d8e0eb;
+  border-radius: .6rem;
+}
+
+.form-control:focus {
+  border-color: #8395f2;
+  box-shadow: 0 0 0 .2rem rgb(79 107 237 / 14%);
+}
+
+@media (max-width: 575px) {
+  .navbar { min-height: auto; }
+  .navbar .container { gap: .75rem; padding-block: .75rem; }
+  .navbar-brand { margin-right: 0; }
+}

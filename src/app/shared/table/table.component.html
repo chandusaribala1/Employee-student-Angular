@@ -1,0 +1,38 @@
+<!-- This single table renders either model using the columns provided by App. -->
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        @for (column of columns; track column.key) { <th scope="col">{{ column.label }}</th> }
+        @if (permissions.canView || (showActions && (permissions.canEdit || permissions.canDelete))) {
+          <th scope="col">Actions</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (record of records; track record['id']) {
+        <tr>
+          @for (column of columns; track column.key) { <td>{{ record[column.key] }}</td> }
+          @if (permissions.canView || (showActions && (permissions.canEdit || permissions.canDelete))) {
+            <td>
+              <div class="d-flex flex-wrap gap-2">
+                @if (permissions.canView) {
+                  <app-button label="View" bootstrapClass="btn-outline-info" (buttonClick)="onView(record)" />
+                }
+                @if (showActions && permissions.canEdit) {
+                  <app-button label="Edit" bootstrapClass="btn-outline-secondary" (buttonClick)="onEdit(record)" />
+                }
+                @if (showActions && permissions.canDelete) {
+                  <app-button label="Delete" bootstrapClass="btn-outline-danger" (buttonClick)="onDelete(record)" />
+                }
+              </div>
+            </td>
+          }
+        </tr>
+      } @empty {
+        <tr><td [attr.colspan]="columns.length + 1" class="text-center text-secondary py-4">No matching records.</td></tr>
+      }
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,35 @@
+<section class="record-form border rounded p-3 p-md-4 mt-3 bg-white" aria-labelledby="formHeading">
+  <h2 id="formHeading" class="h4">{{ editing ? 'Edit' : 'Add' }} {{ formMode === 'employees' ? 'employee' : 'student' }}</h2>
+  <p class="text-secondary">Complete the required fields, then save.</p>
+
+  <!-- [formGroup] attaches the parent-created FormGroup. formControlName links each
+       HTML input to its matching FormControl. ngSubmit emits an event back to App. -->
+  <form [formGroup]="formMode === 'employees' ? employeeForm : studentForm" (ngSubmit)="submitForm.emit()" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label" for="recordName">Name *</label>
+        <input id="recordName" class="form-control" [class.is-invalid]="invalid(formMode === 'employees' ? employeeForm : studentForm, 'name')" formControlName="name" maxlength="100">
+        <div class="invalid-feedback">Enter a name (up to 100 characters).</div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="recordEmail">Email *</label>
+        <input id="recordEmail" type="email" class="form-control" [class.is-invalid]="invalid(formMode === 'employees' ? employeeForm : studentForm, 'email')" formControlName="email" maxlength="254">
+        <div class="invalid-feedback">Enter a valid email address.</div>
+      </div>
+
+      @if (formMode === 'employees') {
+        <div class="col-md-4"><label class="form-label" for="department">Department *</label><input id="department" class="form-control" [class.is-invalid]="invalid(employeeForm, 'department')" formControlName="department" maxlength="80"><div class="invalid-feedback">Enter a department.</div></div>
+        <div class="col-md-4"><label class="form-label" for="designation">Designation *</label><input id="designation" class="form-control" [class.is-invalid]="invalid(employeeForm, 'designation')" formControlName="designation" maxlength="100"><div class="invalid-feedback">Enter a designation.</div></div>
+        <div class="col-md-4"><label class="form-label" for="salary">Salary *</label><input id="salary" type="number" min="0.01" max="100000000" step="0.01" class="form-control" [class.is-invalid]="invalid(employeeForm, 'salary')" formControlName="salary"><div class="invalid-feedback">Salary must be a positive number.</div></div>
+      } @else {
+        <div class="col-md-4"><label class="form-label" for="course">Course *</label><input id="course" class="form-control" [class.is-invalid]="invalid(studentForm, 'course')" formControlName="course" maxlength="100"><div class="invalid-feedback">Enter a course.</div></div>
+        <div class="col-md-4"><label class="form-label" for="college">College *</label><input id="college" class="form-control" [class.is-invalid]="invalid(studentForm, 'college')" formControlName="college" maxlength="120"><div class="invalid-feedback">Enter a college.</div></div>
+        <div class="col-md-4"><label class="form-label" for="age">Age *</label><input id="age" type="number" min="1" max="120" step="1" class="form-control" [class.is-invalid]="invalid(studentForm, 'age')" formControlName="age"><div class="invalid-feedback">Age must be a whole number between 1 and 120.</div></div>
+      }
+    </div>
+    <div class="d-flex flex-wrap gap-2 mt-4">
+      <button class="btn btn-primary" type="submit">{{ editing ? 'Save changes' : 'Add ' + (formMode === 'employees' ? 'employee' : 'student') }}</button>
+      <button class="btn btn-outline-secondary" type="button" (click)="cancelForm.emit()">Cancel</button>
+    </div>
+  </form>
+</section>

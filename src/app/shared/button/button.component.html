@@ -1,0 +1,10 @@
+<!-- The parent's @Input values customize this button; its output never calls an API. -->
+<button
+  class="btn"
+  [ngClass]="bootstrapClass"
+  [type]="type"
+  [disabled]="disabled"
+  (click)="buttonClick.emit()">
+<!--  //child stored it in label-->
+  {{ label }}
+</button>
